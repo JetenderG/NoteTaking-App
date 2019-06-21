@@ -5,7 +5,7 @@ var bycrpt = require("bcrypt");
 
 module.exports  = apps =>  {
 
-apps.get("/" , (req, res){
+apps.get("/" , (req, res) => {
 
 })
 
