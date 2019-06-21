@@ -1,0 +1,29 @@
+{
+  "name": "NoteTaking-App",
+  "version": "1.0.0",
+  "description": "App that allows user to create their own notes and save them. User are able to create accounts to display and save info to respect area.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JetenderG/NoteTaking-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JetenderG/NoteTaking-App/issues"
+  },
+  "homepage": "https://github.com/JetenderG/NoteTaking-App#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.17.1",
+    "nodemon": "^1.19.1",
+    "sequelize": "^5.8.10"
+  }
+}
