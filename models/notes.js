@@ -7,14 +7,10 @@ const Notes = sequelize.define("notes", {
         autoIncrement : true,
         primaryKey : true,
     },
-
-    users : {
-        type : DataTypes.VARCHAR
-
+    note : {
+        type : DataTypes.STRING(50),
     }
+
 })
-
-
 return Notes;
-
 }

@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const db = require("./models");
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(express.urlencoded({
@@ -11,6 +11,8 @@ extended:false
 app.use(express());
 app.use(express.static("public"));
 
+require("./routes/html_Routes/htmlM")(app);
+require("./routes/api_Routes/apiM")(app);
 
 app.engine(
     "handlebars",
@@ -25,9 +27,6 @@ var syncOptions = {
     force:false
 };
 
-if (process.env.NODE.ENV === "test"){
-    syncOptions.force = true;
-}
 
 db.sequelize.sync(syncOptions).then(function (){
     app.listen(PORT , function (){

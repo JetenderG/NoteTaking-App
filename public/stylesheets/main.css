@@ -1,0 +1,125 @@
+html,
+body,
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+h4{
+    text-align: center;
+}
+.wrapper {
+    height: 90%;
+    margin-bottom: 10%;
+
+}
+
+.boowk {
+
+    background: orange;
+    height: 100px;
+    width: 100px;
+}
+
+.book-lefwt {
+    border-left: 25px solid transparent;
+    border-bottom: 50px solid transparent;
+}
+
+.book-riwght {}
+
+.top-section,
+.top-title,
+.mainscreen,
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.navbar-div {
+    padding: auto;
+    margin: 0;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+
+}
+
+.top-title {
+    position: relative;
+}
+
+.top-section {
+    margin: 0 !important;
+    height: 35%;
+}
+
+.bottom-section {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: auto, auto, auto;
+    height: 65%;
+    grid-gap: 5%;
+
+}
+
+.sect-box {
+    background-color: rgb(201, 192, 192);
+    height: 100%;
+    position: relative;
+}
+
+.footer {
+    height: 5%;
+    width: 100%;
+    background-color: black;
+    position: relative;
+    bottom: 0;
+}
+
+.header-div {
+    height: 5%;
+    display: block;
+}
+
+.main-title {
+    line-height: 7;
+}
+.sign-login{
+border: solid black;
+height: 80%;
+display: inline-block;
+vertical-align: middle;
+width: 100%;
+position: relative;
+margin: auto;
+margin-top: 10%;
+margin-bottom: 10%;
+}
+.loginBackground{
+    display:table;
+
+}
+.l-s{
+    height: 50%;
+    width: 100%;
+    display: inline-block;
+}
+.form-group{
+    text-align: center;
+}
+.form-control{
+    width: 50%;
+    margin: 0 auto;
+}
+.newloginBtn{
+    margin: 0 auto;
+    display: block;
+}
+.loginBtn{
+    margin: 0 auto;
+    display: block;
+}
