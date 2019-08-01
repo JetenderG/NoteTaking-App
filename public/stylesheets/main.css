@@ -67,11 +67,18 @@ h1 {
 }
 
 .sect-box {
-    background-color: rgb(201, 192, 192);
+/* background-color: rgb(201, 192, 192); */
     height: 100%;
     position: relative;
 }
-
+.sect-box > h5{
+    text-align: center;
+    width: 100%;
+}
+.sect-box > text{
+    text-align: center;
+    width: 100%;
+}
 .footer {
     height: 5%;
     width: 100%;
