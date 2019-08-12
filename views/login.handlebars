@@ -20,43 +20,27 @@
 <!--Wrapper -->
 
 <div class=" container wrapper loginBackground">
-  <div class=" row sign-login">
-
-    <div class="l-s login col">
-<form>
-  <h4>Sign Up Here</h4>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">.</small>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary newloginBtn">Submit</button>
+ 
+ <div class="register">
+<h1>Register</h1>
+<form accept="register.php" method="post" autocomplete="off">
+  <label for="username">
+    <i class="fas fa-user"></i>
+  </label>
+  <input type="text" name="username" placeholder="Username" id="username" required>
+  <label for="password">
+    <i class="fas fa-lock"></i>
+  </label>
+  <input type="password" name="password" placeholder="Password" id="password"required>
+  <label for="email">
+    <i class="fas fa-envelope"></i>
+  </label>
+  <input type="email" name="email" placeholder="Email" id="email" required>
+  <input type="submit" value="Register">
 </form>
-    </div>
-    <div class="l-s signUp col">
 
-<form>
-  <h4>Login Here</h4>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="inputEmail-login" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="inputPassword-login" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary loginBtn">Submit</button>
-</form>
-    </div>
-
-
-  </div>
-
+   
+ </div>
 
 </div>
 <!--Wrapper end -->

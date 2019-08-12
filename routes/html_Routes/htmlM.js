@@ -3,7 +3,7 @@ var db = require("../../models")
 module.exports  = apps =>  {
 
 apps.get("/NoteTaker" ,  function (req, res){
-
+    ///Ajax call must me made here to gather the information for the session, goes with everyone 
     res.render("index")
 })
 
