@@ -21,9 +21,10 @@
 
 <div class=" container wrapper loginBackground">
  
- <div class="register">
+ <div class="register-log row ">
+<div class="col register "
 <h1>Register</h1>
-<form accept="register.php" method="post" autocomplete="off">
+<form action="/account_create" method="post" autocomplete="on">
   <label for="username">
     <i class="fas fa-user"></i>
   </label>
@@ -38,10 +39,23 @@
   <input type="email" name="email" placeholder="Email" id="email" required>
   <input type="submit" value="Register">
 </form>
-
-   
  </div>
+   <div class="col">
+     <form action="/authorize" method="post" autocomplete="on">
+  <label for="username">
+    <i class="fas fa-user"></i>
+  </label>
+  <input type="text" name="username" placeholder="Username" id="username" required>
+  <label for="password">
+    <i class="fas fa-lock"></i>
+  </label>
+  <input type="password" name="password" placeholder="Password" id="password"required>
+    <input type="submit" value="Login">
 
+</form>
+   </div>
+
+</div>
 </div>
 <!--Wrapper end -->
 <!--Footer -->

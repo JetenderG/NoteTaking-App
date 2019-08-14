@@ -14,16 +14,14 @@ module.exports = function (sequelize, DataTypes){
     
         },
         password:{
-            type: DataTypes.BLOB,
+            type: DataTypes.STRING(255),
+            null:false
         },
         email:{
             type:DataTypes.STRING(50),
             unique:true
         },
-        activation_code:{
-            type:DataTypes.STRING(50),
-            default: ''
-        },
+     
 
     })
     

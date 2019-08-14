@@ -3,6 +3,10 @@ const exphbs = require("express-handlebars");
 const db = require("./models");
 const app = express();
 const PORT = process.env.PORT || 3000;
+const Handlebars =  require("handlebars");
+const session = require("express-session");
+
+const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
 
 app.use(express.urlencoded({
@@ -21,12 +25,27 @@ app.engine(
     })
 )
 
+Handlebars.registerHelper("spChar", function (url){
+    let newUrl = encodeURI(url);
+    console.log(newUrl)
+    return newUrl;
+
+})
 app.set("view engine","handlebars");
 
 var syncOptions = {
     force:false
 };
-
+app.use(session({
+    secret: 'fllipper',
+    store: new sequelizeStore({
+      db: db.sequelize,
+      proxy: true
+    }),
+    resave: false,
+    proxy: true,
+    saveUninitialized : true
+  }))
 
 db.sequelize.sync(syncOptions).then(function (){
     app.listen(PORT , function (){
