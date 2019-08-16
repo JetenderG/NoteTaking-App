@@ -4,33 +4,22 @@ module.exports  = apps =>  {
 
 apps.get("/NoteTaker" ,  function (req, res){
     ///Ajax call must me made here to gather the information for the session, goes with everyone 
-    let username = req.session.username;
-    console.log(username)
-    if (username === "") {
-      res.render("index", {
-          username
-      });
+  let username = req.session.username;
+ console.log("HEELL  " +req.session.loggedin)
+  if (username === "") {
+    res.render("index", {
+  username
+   });
+console.log(req.session)
+  } else {
+    res.render("index")
+    };
+    
 
-    } else {
-      res.render("index", {
-        username
-      });
-    }
-
-})
+  })
 
 apps.get("/NoteTaker/login", function (req,res){
-    let username = req.session.username;
-    if (username === "") {
-      res.render("login", {
-        username
-      });
-
-    } else {
-      res.render("login", {
-        username
-      })
-    }
+    res.render("login")
     })
 
 apps.get("/NoteTaker/notes", function (req,res){

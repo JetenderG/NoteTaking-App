@@ -1,3 +1,4 @@
+/* Main Components for the Site */
 html,
 body,
 .wrapper {
@@ -12,21 +13,7 @@ h4{
     margin-bottom: 10%;
 
 }
-
-.boowk {
-
-    background: orange;
-    height: 100px;
-    width: 100px;
-}
-
-.book-lefwt {
-    border-left: 25px solid transparent;
-    border-bottom: 50px solid transparent;
-}
-
-.book-riwght {}
-
+/* Home Page */
 .top-section,
 .top-title,
 .mainscreen,
@@ -95,6 +82,9 @@ h1 {
 .main-title {
     line-height: 7;
 }
+
+
+
 .sign-login{
 border: solid black;
 height: 80%;
@@ -106,6 +96,9 @@ margin: auto;
 margin-top: 10%;
 margin-bottom: 10%;
 }
+
+
+
 .loginBackground{
     display:table;
 
@@ -130,7 +123,8 @@ margin-bottom: 10%;
     margin: 0 auto;
     display: block;
 }
-.page{
+/* Page Icon */
+.page-icon{
     height: 80%;
     width: 25%;
     border: solid 2px black;
@@ -143,3 +137,4 @@ margin-bottom: 10%;
     border-bottom: solid;
     margin: auto;
 }
+/* Save Icon */
