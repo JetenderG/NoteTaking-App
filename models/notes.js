@@ -7,8 +7,12 @@ const Notes = sequelize.define("notes", {
         autoIncrement : true,
         primaryKey : true,
     },
+    title : {
+        type: DataTypes.STRING(50)
+
+    },
     note : {
-        type : DataTypes.STRING(50),
+        type : DataTypes.BLOB,
     }
 
 })

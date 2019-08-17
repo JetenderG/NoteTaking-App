@@ -7,6 +7,8 @@ apps.get("/account_owner/notes", function (req, res) {
     let username = req.params.username;
     if (username = null){
         res.send("Login to Writes your notes");
+    }else{
+        next();
     };
 });
 apps.get("/account_owner/notes", function (req ,res){
@@ -18,7 +20,11 @@ apps.get("/account_owner/notes", function (req ,res){
     });
 });
 apps.post("/account_owner/newNote", function (req,res){
-    let username = req.params.username;
+    console.log("Title: " +req.body.title + "  Text:  " + req.body.text)
+
+       let note = {
+            title :            
+       }
 })
 apps.post("/account_owner/newNote", function (req,res){
     let username = req.params.username;
