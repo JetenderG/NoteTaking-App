@@ -14,21 +14,40 @@ apps.get("/account_owner/notes", function (req, res) {
 apps.get("/account_owner/notes", function (req ,res){
     let username = req.params.username;
     db.notes.findAll({
-        where: user = username
+        where: username = username
     }).then(function (data){
         res.json(data);
     });
 });
+apps.get("/account_owner/notes-titles", function (req, res){
+    let username = req.params.username;
+    db.notes.findAll({
+        where: username = username
+    }).then(function (data){
+        res.json(data.title);
+    });
+})
+
 apps.post("/account_owner/newNote", function (req,res){
     console.log("Title: " +req.body.title + "  Text:  " + req.body.text)
-
        let note = {
-            title :            
+            title : req.body.title,
+            note : req.bpdy.note           
        }
-})
+
+       db.create(note,{where: username = req.session.username}).then( function (data){
+           console.log("Note Created")
+       })
+       
+})   
 apps.post("/account_owner/newNote", function (req,res){
     let username = req.params.username;
 })
+
+
+
+
+////Login and Registeration
 apps.post("/account_create", function (req , res){
     let saltRounds = 10;
     db.accounts.findAll({ where:{

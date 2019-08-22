@@ -13,7 +13,7 @@ const Notes = sequelize.define("notes", {
     },
     note : {
         type : DataTypes.BLOB,
-    }
+    },
 
 })
 return Notes;
