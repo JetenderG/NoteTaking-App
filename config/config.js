@@ -3,14 +3,8 @@ require('dotenv').config();
 module.exports=
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "noteTaker_db",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": "3306",
-    "logging": false,
-    "storage": "./session.mysql"
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
 
 
   },
@@ -26,13 +20,7 @@ module.exports=
 
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "noteTaker_db",
-    "host": "localhost",
-    "dialect": "mysql",
-    "port": "3306",
-    "logging": false,
-    "storage": "./session.mysql"
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 };
