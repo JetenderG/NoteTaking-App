@@ -57,9 +57,9 @@ apps.post("/account_create", function (req , res){
         if (data.length > 1){
             res.send("The Account is already taken")
         }else if (data.length < 1){
-            bycrpt.genSalt(saltRounds, function (err, salt){
+            bcrypt.genSalt(saltRounds, function (err, salt){
                 if (err) throw err
-                bycrpt.hash(req.body.password, salt, function (err, hash){
+                bcrypt.hash(req.body.password, salt, function (err, hash){
                     if (err) throw err 
                     let newaccount = {
                         username : req.body.username,
