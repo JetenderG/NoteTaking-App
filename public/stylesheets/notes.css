@@ -16,10 +16,20 @@
 .notes-container{
     display: inline-grid;
     grid-gap: 2px;
-
+    grid-template-columns: repeat(auto-fit , 24%);
+    grid-template-rows: repeat(auto-fit , 24%);
+    width: 90%;
+    height: 100%;
 }
 .dummy-notes{
     height: 100px;
     width: 70px;
     border: solid 1px black;
+}
+.sidebar-notes{
+    height: 100%;
+    width: 10%;
+    /* margin-right: 0 !important; */
+    display: block;
+    float: left;
 }

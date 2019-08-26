@@ -85,10 +85,9 @@ h1 {
     margin: 0;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto, auto, auto;
-    height: 65%;
+    height: 20%;
     grid-gap: 5%;
-
+    grid-template-columns: 30% 30% 30%;
 }
 
 .sect-box {
@@ -126,6 +125,7 @@ h1 {
 
 section {
 text-align: center;
+width: 100%;
 }
 
 
@@ -206,5 +206,13 @@ text-align: center;
     bottom: 15px;
     left: 35px;
     position: relative;
+
+}
+.folder-icon{
+    padding: 0 2px 3px;
+
+}
+.div-save{
+    padding: 10% 3% 3% 3%;
 
 }
