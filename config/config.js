@@ -4,7 +4,7 @@ module.exports=
 {
   "development": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql",  },
+    "dialect": "mysql" },
   "test": {
     "username": "root",
     "password": "root",
@@ -13,11 +13,11 @@ module.exports=
     "dialect": "mysql",
     "port": "3306",
     "logging": false,
-    "storage": "./sessions.mysql"
+    "storage": "./session.mysql"
 
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql",
+    "dialect": "mysql"
   }
 };
