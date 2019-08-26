@@ -86,6 +86,7 @@ apps.post("/authorize", function (request,respond){
             if (!results){
                 request.send("Account does not exist")
             } else {
+                console.log(results);
                 bcrypt.compare(password, results[0].dataValues.password, function (err, results){
                     console.log(JSON.stringify(results))
                     if (err) throw err;
