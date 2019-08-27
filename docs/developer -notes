@@ -3,3 +3,34 @@ This application is to make notes that is allocated to an account.
 Used handlebars for pratice and pratical use of it.
     Any time of rendering templates can be used in this application as the use of it is more of pratice
     
+
+
+
+
+
+
+
+Follow along with this
+
+
+    create Notes 
+    edit notes 
+    delete notes are the main things that must be done 
+
+
+    notes created comes from a box in the middle of the screen
+    same goes with editing it 
+    delete can come from select or when editing 
+    organize notes by date of creation
+
+
+imporant 
+
+    style everything
+
+    bonus 
+    create a way to seach for just the title
+    create user dashboard
+    notes can be drawn over life real notes don
+
+

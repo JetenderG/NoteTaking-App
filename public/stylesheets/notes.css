@@ -1,5 +1,11 @@
-.not-active{
+.note-Notactive{
     display: none;
+}
+.note.active{
+    display: block;
+    width: 50%;
+    height: 70%;
+    margin: auto;
 }
 .overlay{
     display: none;
@@ -14,7 +20,7 @@
    border: solid black;
 }
 .notes-container{
-    display: inline-grid;
+    display: grid;
     grid-gap: 2px;
     grid-template-columns: repeat(auto-fit , 24%);
     grid-template-rows: repeat(auto-fit , 24%);

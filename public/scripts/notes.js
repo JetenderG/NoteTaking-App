@@ -1,4 +1,5 @@
 import { json } from "sequelize/types";
+import { type } from "os";
 
 var API = {
     createNote: function () {
@@ -25,7 +26,7 @@ var API = {
                 
             }
         })
-    }
-}
+    },
 
+}
 
