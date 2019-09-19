@@ -1,5 +1,4 @@
-import { json } from "sequelize/types";
-import { type } from "os";
+
 
 var API = {
     createNote: function () {
@@ -30,3 +29,32 @@ var API = {
 
 }
 
+$(function(){
+    console.log("ho"
+    )
+    const overlayAll = () =>{
+        console.log('hi');
+        const overlay = $('.overlay-null');
+        const overlay_h = $('.header-div');
+        const overlay_n = $('.noteBoard');
+        const overlay_f = $('.footer');
+        overlay.addClass('overlay-on');
+        overlay_h.addClass('overlay-header');
+        overlay_n.addClass('overlay-noteBoard');
+        overlay_f.addClass('overlay-footer');
+    };
+
+$(".input-note").on('click', overlayAll)
+
+
+$('.close-note').on('click', function (){
+    const overlaynull = $('.overlay-null');
+    overlaynull.removeClass('overlay-on');
+    overlay_h.removeClass('overlay-header');
+    overlay_n.removeClass('overlay-noteBoard');
+    overlay_f.removeClass('overlay-footer');
+})
+
+
+
+})

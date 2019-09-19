@@ -1,6 +1,6 @@
 
 <!--Header-->
-<div class="back-forth overlay not-active">
+<div class="overlay-null overlay-on ">
 <div class="header-div">
   <div class="navbar-div">
     <ul class="nav justify-content-center">
@@ -21,9 +21,10 @@
 </div>
 <!--Header end -->
 <!--Wrapper -->
-<div class=" wrapper noteBoard">
+<div class=" wrapper noteBoard ">
 <div class="noteBox">
 <div class="sidebar-notes category">
+  <input type="button" class="input-note" name="Create A Note" id="inputNote">
 </div>
 <div class="notes-container">
 <div class="dummy-notes item">
@@ -47,14 +48,14 @@
 </div>
 <!--Wrapper end -->
 <!--Footer -->
-<div class="footer"></div>
+<div class="footer "></div>
 <!--Footer end -->
 </div>
 
 <div class="overlay not-active">
 
 </div>
-<div class="new-note-form  note-Notactive">
+<div class="new-note-form note-active">
   <form method="POST" action="/account_owner/newNote" >
   <label class="label">Note Title</label>
   <div class="title">
@@ -62,7 +63,10 @@
   </div>
       <label class="note-text">Write Your Note</label>
   <div class="text-note">
-    <textarea class="note-text" name="note">
+    <textarea class="note-text" name="note"></textarea>
+  </div>
+  <div class ="submit-div">
+      <input type="submit" name="submit">
   </div>
   </form>
 </div>

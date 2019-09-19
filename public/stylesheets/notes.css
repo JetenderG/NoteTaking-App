@@ -1,11 +1,19 @@
-.note-Notactive{
-    display: none;
+
+.overlay-null{
+    height: 100%;
+    width: 100%;
 }
-.note.active{
+.overlay-on{
+    z-index: 0;
+    display: block;
+    background: rgba(0, 0, 0, 0.24);
+}
+.note-active{
     display: block;
     width: 50%;
     height: 70%;
     margin: auto;
+    z-index: 1;
 }
 .overlay{
     display: none;
@@ -38,4 +46,9 @@
     /* margin-right: 0 !important; */
     display: block;
     float: left;
+}
+
+.overlay-header, .overlay-noteBoard,.overlay-footer{
+    z-index: -100;
+    position: relative;
 }

@@ -31,15 +31,27 @@ apps.get("/account_owner/notes-titles", function (req, res){
 apps.post("/account_owner/newNote", function (req,res){
     console.log("Title: " +req.body.title + "  Text:  " + req.body.text)
        let note = {
-            title : req.body.title,
-            note : req.bpdy.note           
+        title : req.body.title,
+            note : req.body.note           
        }
 
-       db.create(note,{where: username = req.session.username}).then( function (data){
+       db.notes.create(note,{where: username = req.session.username}).then( function (data){
            console.log("Note Created")
        })
        
-})   
+})  
+apps.put("/account_owner/updateNote", function (req,res){
+    console.log("Title: " +req.body.title + "  Text:  " + req.body.text)
+       let note = {
+        title : req.body.title,
+            note : req.body.note           
+       }
+
+       db.notes.create(note,{where: username = req.session.username}).then( function (data){
+           console.log("Note Created")
+       })
+       
+})  
 apps.post("/account_owner/newNote", function (req,res){
     let username = req.params.username;
 })

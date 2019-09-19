@@ -1,4 +1,14 @@
+
+
+
 /* Main Components for the Site */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
 html {
     font-size: 62.5%;
 }
@@ -10,6 +20,8 @@ body,
     height: 100%;
     width: 100%;
     /* background-color: orange; */
+    font-size: 62.5%;
+
 }
 
 body {
@@ -23,10 +35,12 @@ h5 {
 }
 
 .wrapper {
-    height: 90%;
+    height: 85%;
     /* margin-bottom: 10%; */
     border-radius: 6%;
     background-color: white;
+    padding-top: 80px;
+
 }
 
 /*log-parital */
@@ -67,7 +81,9 @@ h1 {
 
 .top-title {
     position: relative;
-}
+    transform: rotate(-45deg);
+    right: 25%;
+    top: 80%;}
 
 .top-section {
     margin: 0 !important;
@@ -84,10 +100,7 @@ h1 {
     width: 100%;
     margin: 0;
     overflow: hidden;
-    display: grid;
-    height: 20%;
-    grid-gap: 5%;
-    grid-template-columns: 30% 30% 30%;
+ 
 }
 
 .sect-box {
@@ -115,12 +128,21 @@ h1 {
 }
 
 .header-div {
-    height: 5%;
+    height: 10%;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .main-title {
-    line-height: 7;
+    font-size: 8rem;
+    width: 59%;
+    text-align: center;
+    /* margin: 0 auto; */
+    /* bottom: 0%; */
+    top: 10px;
+    /* z-index: -1; */
+    position: absolute;
 }
 
 section {
@@ -129,6 +151,7 @@ width: 100%;
 }
 
 
+/*////////////////////////////////////////////////////////////////////////W               */
 .sign-login {
     border: solid black;
     height: 80%;
@@ -216,3 +239,30 @@ width: 100%;
     padding: 10% 3% 3% 3%;
 
 }
+/*/////////////////////////////////////////////////////////          */
+
+@media screen and (min-width: 400px) {
+    .bottom-section {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: repeat(3, 33%);
+      justify-content: center;
+
+    }
+    .main-title{
+        font-size: 3rem;
+        top: 200px;
+    }
+    .wrapper{
+     padding: 0;
+    }
+  }
+  @media screen and (max-width:400px) {
+    .bottom-section {
+        overflow: hidden;
+        display: grid;
+        height: 32%;
+        
+        grid-template-columns: 20% 20% 20%;
+        margin-left: 50%;
+    }
+  }
