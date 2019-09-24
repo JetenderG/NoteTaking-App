@@ -2,8 +2,21 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const db = require("./models");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = /*process.env.PORT ||*/ 3010;
+const Handlebars =  require("handlebars");
+const session = require("express-session");
+const sequelizeStore = require("connect-session-sequelize")(session.Store);
 
+app.use(session({
+    secret: 'notssss',
+    store: new sequelizeStore({
+      db: db.sequelize,
+      proxy: true
+    }),
+    resave: false,
+    proxy: true,
+    saveUninitialized : true
+  }))
 
 app.use(express.urlencoded({
 extended:false
@@ -21,12 +34,17 @@ app.engine(
     })
 )
 
+Handlebars.registerHelper("spChar", function (url){
+    let newUrl = encodeURI(url);
+    console.log(newUrl)
+    return newUrl;
+
+})
 app.set("view engine","handlebars");
 
 var syncOptions = {
     force:false
 };
-
 
 db.sequelize.sync(syncOptions).then(function (){
     app.listen(PORT , function (){

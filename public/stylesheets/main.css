@@ -1,34 +1,46 @@
-html,
-body,
-.wrapper {
-    height: 100%;
-    width: 100%;
+/* Main Components for the Site */
+html {
+    font-size: 62.5%;
 }
 
-h4 {
+html,
+body,
+.wrapper,
+.background-curve {
+    height: 100%;
+    width: 100%;
+    /* background-color: orange; */
+}
+
+body {
+    font-size: 1.5rem
+}
+
+h5 {
+    font-family: 'Anton', sans-serif;
+
     text-align: center;
 }
 
 .wrapper {
     height: 90%;
-    margin-bottom: 10%;
-
+    /* margin-bottom: 10%; */
+    border-radius: 6%;
+    background-color: white;
 }
 
-.boowk {
-
-    background: orange;
-    height: 100px;
-    width: 100px;
+/*log-parital */
+.log-partial {
+    display: flex;
+    flex-wrap: wrap
 }
 
-.book-lefwt {
-    border-left: 25px solid transparent;
-    border-bottom: 50px solid transparent;
+.logOut-btn {
+    background-color: white;
 }
 
-.book-riwght {}
 
+/* Home Page */
 .top-section,
 .top-title,
 .mainscreen,
@@ -48,13 +60,24 @@ h1 {
 
 }
 
+.nav-link {
+    font-size: 1.7rem;
+
+}
+
 .top-title {
     position: relative;
 }
 
 .top-section {
     margin: 0 !important;
-    height: 30%;
+    height: 20%;
+}
+
+.middle-section {
+    width: 100%;
+    margin: auto;
+    height: 15%;
 }
 
 .bottom-section {
@@ -62,10 +85,10 @@ h1 {
     margin: 0;
     overflow: hidden;
     display: grid;
-    grid-template-rows: auto, auto, auto;
-    height: 70%;
+   grid-template-rows: auto, auto, auto;
+   height: 20%;
     grid-gap: 5%;
-
+    grid-template-columns: 30% 30% 30%;
 }
 
 .sect-box {
@@ -115,65 +138,124 @@ h1 {
 
 .loginBackground {
     display: table;
-
 }
+   section {
+        text-align: center;
+        width: 100%;
+    }
 
-.l-s {
-    height: 50%;
-    width: 100%;
-    display: inline-block;
-}
+  .sign-login {
+        border: solid black;
+        height: 80%;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        position: relative;
+        margin: auto;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
 
-.form-group {
-    text-align: center;
-}
+   .loginBackground {
+        display: table;
 
-.form-control {
-    width: 50%;
-    margin: 0 auto;
-}
+    }
 
-.newloginBtn {
-    margin: 0 auto;
-    display: block;
-}
+   .l-s {
+        height: 50%;
+        width: 100%;
+        display: inline-block;
+    }
 
-.loginBtn {
-    margin: 0 auto;
-    display: block;
-}
+    .form-group {
+        text-align: center;
+    }
 
-.page-icon,
-.save-icon,
-.organize-icon {
-    height: 80%;
-    width: 25%;
-    border: solid 2px black;
-    margin: auto;
-}
+    .form-control {
+        width: 50%;
+        margin: 0 auto;
+    }
 
-.page-icon {
-    padding: 1% 3% 3% 3%;
-}
+    .newloginBtn {
+        margin: 0 auto;
+        display: block;
+    }
 
-.page-line {
-    height: 25%;
-    width: 80%;
-    border-bottom: solid;
-    margin: auto;
-}
+    .loginBtn {
+        margin: 0 auto;
+        display: block;
+    }
+
+   .page-icon,
+    .save-icon,
+    .organize-icon {}
+
+     .icon {
+      height: 80%;
+            margin: auto;
+        }
+
+        .page-icon {
+            padding: 1% 3% 3% 3%;
+            display: inline-block;
+        }
+
+       .page-line {
+            height: 25%;
+            width: 80%;
+            border-bottom: solid;
+            margin: auto;
+        }
 
 
-.save-border {
-    height: 90%;
-    width: 90%;
-    border: solid 2px black;
-    margin: 3% auto;
+        .save-border {
+            height: 90%;
+            width: 90%;
+            border: solid 2px black;
+            margin: 3% auto;
 
-}
+        }
 
-.little-note {
-    height: 10%;
-    width: 10%;
-    border: solid black 2px;
-}
+        .little-note {
+            height: 10%;
+            width: 10%;
+            border: solid black 2px;
+
+        }
+          .save-btn-F {
+                height: 5rem;
+                width: 12rem;
+                border: solid;
+                border-color: #8080802e;
+                border-width: 0.5rem;
+                text-align: center;
+                padding: 5%;
+                position: relative;
+                z-index: 1;
+                box-shadow: 0px 5px #8080805e;
+
+            }
+
+            .save-text {
+                margin: 0;
+
+            }
+
+            .cursor-icon {
+                display: block;
+                margin: auto;
+                z-index: 2;
+                bottom: 15px;
+                left: 35px;
+                position: relative;
+
+            }
+
+            .folder-icon {
+                padding: 0 2px 3px;
+
+            }
+
+            .div-save {
+                padding: 10% 3% 3% 3%;
+            }

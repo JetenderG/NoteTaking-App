@@ -2,62 +2,61 @@
 <!--Header-->
 <div class="header-div">
   <div class="navbar-div">
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
- 
-</ul>
-</div>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="/noteTaker">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/noteTaker/login">Login/Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <!--Header end -->
 <!--Wrapper -->
 
-<div class=" container wrapper loginBackground">
-  <div class=" row sign-login">
-
-    <div class="l-s login col">
-<form>
-  <h4>Sign Up Here</h4>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">.</small>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary newloginBtn">Submit</button>
+<div class=" wrapper loginBackground">
+ 
+ <div class="container register-log  ">
+<div class="row relog register ">
+<h1>Register</h1>
+<form action="/account_create" method="post" autocomplete="on">
+  <label for="username">
+    <i class="fas fa-user"></i>
+  </label>
+  <input type="text" name="username" placeholder="Username" id="username" required>
+  <label for="password">
+    <i class="fas fa-lock"></i>
+  </label>
+  <input type="password" name="password" placeholder="Password" id="password"required>
+  <label for="email">
+    <i class="fas fa-envelope"></i>
+  </label>
+  <input type="email" name="email" placeholder="Email" id="email" required>
+  <input type="submit" value="Register">
 </form>
-    </div>
-    <div class="l-s signUp col">
+ </div>
+   <div class="row relog login">
+     <h1>Login</h1>
 
-<form>
-  <h4>Login Here</h4>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="inputEmail-login" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="inputPassword-login" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary loginBtn">Submit</button>
+     <form action="/authorize" method="post" autocomplete="on">
+  <label for="username">
+    <i class="fas fa-user"></i>
+  </label>
+  <input type="text" name="username" placeholder="Username" id="username" required>
+  <label for="password">
+    <i class="fas fa-lock"></i>
+  </label>
+  <input type="password" name="password" placeholder="Password" id="password"required>
+    <input type="submit" value="Login">
+
 </form>
-    </div>
+   </div>
 
-
-  </div>
-
-
+</div>
 </div>
 <!--Wrapper end -->
 <!--Footer -->
