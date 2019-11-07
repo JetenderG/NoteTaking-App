@@ -57,4 +57,6 @@ $('.close-note').on('click', function (){
 
 
 
+
+
 })

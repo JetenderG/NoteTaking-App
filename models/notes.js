@@ -18,3 +18,4 @@ const Notes = sequelize.define("notes", {
 })
 return Notes;
 }
+
