@@ -69,18 +69,28 @@ h1 {
     font-size: 1.7rem;
 
 }
+.tell-text{
+    font-size: 2.5vmin;
 
+}
 .tell-container{
     background: #f3f3f3;
+    margin-bottom: 10px;
 }
+
 .tell-log, .tell-ready{
-    font-size: 2vmin;
+    font-size: 3vmin;
 
 }
 
 
 .botCol{
     text-align:center;
+}
+.profile-design{
+    height: 400px;
+    width: 400px;
+    border: black solid;
 }
 
 .bottom-section {
