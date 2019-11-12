@@ -8,7 +8,7 @@ module.exports = {
             res.send("Login to Writes your notes");
         } else {
             let username = req.params.username;
-            db.notes.findAll({
+            db.Accounts.findAll({
                 where: username = username
             }).then(function (data) {
                 res.json(data);
@@ -16,24 +16,34 @@ module.exports = {
         };
     },
     createNote: (req, res) => {
-        console.log("Title: " + req.body.title + "  Text:  " + req.body.text)
-        let note = {
+        console.log("Title: " + req.body.title + "  Text:  " + req.body.note)
+        db.Accounts.findAll({
+            where:{ username : req.session.username}
+        }).then(data=>{
+            let userId = data[0].dataValues.id
+            let note = {
             title: req.body.title,
-            note: req.body.note
+            note: req.body.note,
+            noteID: userId
         }
-        db.notes.create(note, {
-            where: username = req.session.username
-        }).then(function (data) {
+if(note.title ==null || note.note == null){
+    return res.send('Please add a title and or text')
+}else{
+     db.Notes.create(note)
+     .then(function (data) {
             console.log("Note Created")
-        })
-    },
+        })   
+        }
+        
+    })
+    } ,
     UpdateNote: (req, res) => {
         console.log("Title: " + req.body.title + "  Text:  " + req.body.text)
         let note = {
             title: req.body.title,
             note: req.body.note
         }
-        db.notes.create(note, {
+        db.Notes.create(note, {
             where: username = req.session.username
         }).then(function (data) {
             console.log("Note Created")
@@ -41,7 +51,7 @@ module.exports = {
     },
     CreateAccount: (req, res) => {
         let saltRounds = 10;
-        db.accounts.findAll({
+        db.Accounts.findAll({
             where: {
                 username: req.body.username,
                 password: req.body.email
@@ -59,7 +69,7 @@ module.exports = {
                             password: hash,
                             email: req.body.email
                         }
-                        db.accounts.create(newaccount).then(function (data) {
+                        db.Accounts.create(newaccount).then(function (data) {
                             res.redirect("/NoteTaker/login")
                         })
                     })
@@ -69,31 +79,38 @@ module.exports = {
     },
     ////Login and Registeration
     Authorize: (request, respond) => {
+     //   console.log('hekko')
         var username = request.body.username;
         var password = request.body.password;
+      //  console.log(`${username} ${password}`)
         if (username && password) {
-            db.accounts.findAll({
+            db.Accounts.findOne({
                 where: {
                     username: username
                 }
             }).then(function (results) {
+               // console.log(results)
                 if (!results) {
-                    request.send("Account does not exist")
+                    console.log("hi")
+                    respond.json("Account does not exist")
                 } else {
-                    console.log(results);
-                    bcrypt.compare(password, results[0].dataValues.password, function (err, results) {
-                        console.log(JSON.stringify(results))
+                   // console.log(results);
+                    bcrypt.compare(password, results.dataValues.password, function (err, check) {
+                        console.log("This is an object of account:  " +results.id)
+                       // console.log(JSON.stringify(results))
+                       //console.log(results.dataValues)
                         if (err) throw err;
-                        if (results == true) {
+                        if (check == true) {
                             request.session.loggedin = true;
                             request.session.username = username;
+                            request.session.userId= results.id
+                           // request.session.id = id;
                             respond.redirect('/NoteTaker');
                             console.log(request.session)
                         } else {
-                            respond.send("Incorrect Passwprd ")
+                            respond.json("Incorrect Passwprd ")
                         }
                     })
-                    location.reload();
                 }
             })
         }

@@ -3,7 +3,7 @@
 var API = {
     createNote: function () {
       return $.ajax({
-        url: "/noteTaker/create/note",
+        url: "/create-note",
         type: "POST",
         success: function(){
           location.reload()
@@ -13,13 +13,13 @@ var API = {
     },
     getNotes: function () {
         return $.ajax({
-            url : "noteTaker/get-all-notes",
+            url : "/get-all-notes",
             type : "GET",
         })
     },
    editNote : function (){
         return $.ajax({
-            url : "noteTaker/update/note/reference:",
+            url : "/update/note/:id",
             type : "UPDATE",
             success : function (){
                 
@@ -56,7 +56,8 @@ $('.close-note').on('click', function (){
 })
 
 
-
-
-
+console.log(request)
+$(document).on("click", function (){
+    console.log(session)
+})
 })

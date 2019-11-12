@@ -14,7 +14,7 @@
         <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
       </li>
         <li class="nav-item">
-          {{>logOrnot this}}
+          {{>logOrnot data.username}}
       </li>
     </ul>
   </div>
@@ -45,8 +45,10 @@
 
 </div>
 <div class="new-note-form">
-  <form method="POST" action="/account_owner/newNote" >
+  <form method="POST" action="/create-note" >
   <label class="label">Note Title</label>
+      <input type="text" class="id-note-title" data-id={{data.userId}} name="title"></input>
+
   <div class="title">
     <input type="text" class="n-note-title" name="title"></input>
   </div>

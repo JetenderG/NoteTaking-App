@@ -21,18 +21,18 @@
     <div class="row">
     <div class="col relog register ">
       <h1>Register</h1>
-      <form>
+      <form action="/account_create" method="post" autocomplete="on">
         <div class="form-group">
           <label for="username">
             <i class="fas fa-user"></i>
           </label>
-          <input type="text" name="username" placeholder="Username" id="username" required class="form-control">
+          <input type="text" name="username" placeholder="Username" id="usernameLog" required class="form-control">
         </div>
         <div class="form-group">
           <label for="email">
             <i class="fas fa-envelope"></i>
           </label>
-          <input type="email" name="email" id="email" required class="form-control" aria-describedby="emailHelp"
+          <input type="email" name="email" id="emailLog" required class="form-control" aria-describedby="emailHelp"
             placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
@@ -40,7 +40,7 @@
           <label for="password">
             <i class="fas fa-lock"></i>
           </label>
-          <input type="password" class="form-control" placeholder="Password" id="password" required>
+          <input type="password" name="password" class="form-control" placeholder="Password" id="passwordLog" required>
         </div>
         <button type="submit" class="btn btn-primary" value="Register">Submit</button>
       </form>
@@ -53,11 +53,11 @@
         <label for="username">
           <i class="fas fa-user"></i>
         </label>
-        <input type="text" name="username" placeholder="Username" id="username" required class="form-control">
+        <input type="text" name="username" placeholder="Username" id="usernameReg" required class="form-control">
         <label for="password">
           <i class="fas fa-lock"></i>
         </label>
-        <input type="password" class="form-control" placeholder="Password" id="password" required>
+        <input type="password" name="password" class="form-control" placeholder="Password" id="passwordReg" required>
         <input type="submit" class="btn btn-primary"   value="Login">
       </form>
     </div>

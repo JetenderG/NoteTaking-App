@@ -30,7 +30,9 @@ require("./routes/api_Routes/apiM")(app);
 app.engine(
     "handlebars",
     exphbs({
-        defaultLayout: "main"
+        defaultLayout: "main",
+        layoutsDir: __dirname + '/views/layouts/',
+  partialsDir: __dirname + '/views/partials/'
     })
 )
 
@@ -42,9 +44,11 @@ Handlebars.registerHelper("spChar", function (url){
 })
 app.set("view engine","handlebars");
 
+
 var syncOptions = {
-    force:false
-};
+    force: false,
+    // logging: console.log
+  };
 
 db.sequelize.sync(syncOptions).then(function (){
     app.listen(PORT , function (){

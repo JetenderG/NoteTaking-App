@@ -1,6 +1,7 @@
-module.exports = function (sequelize, DataTypes) {
 
-const Notes = sequelize.define("notes", {
+module.exports =  (sequelize, DataTypes) => {
+
+var Notes = sequelize.define("Notes", {
 
     id : {
         type: DataTypes.INTEGER,
@@ -13,9 +14,27 @@ const Notes = sequelize.define("notes", {
     },
     note : {
         type : DataTypes.BLOB,
+       
+    },
+    date : {
+        type: DataTypes.DATE,
+        default : Date.now()
     },
 
-})
-return Notes;
-}
+    
+});
+
+Notes.associate = function (models) {
+
+    Notes.belongsTo(models.Accounts,{
+        foreignKey:'account-ID',
+        constraints: false,
+        as:"notes"
+    });
+
+};
+
+
+return Notes
+};
 
