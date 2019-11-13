@@ -17,6 +17,7 @@ module.exports = {
     },
     createNote: (req, res) => {
         console.log("Title: " + req.body.title + "  Text:  " + req.body.note)
+        console.log(req.body)
         db.Accounts.findAll({
             where:{ username : req.session.username}
         }).then(data=>{
