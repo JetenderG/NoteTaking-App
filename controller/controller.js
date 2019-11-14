@@ -4,15 +4,25 @@ var Op = Sequelize.Op;
 var bcrypt = require("bcrypt");
 module.exports = {
     getAllNote: (req, res) => {
+        console.log("honninon")
         if (req.params.username = null) {
             res.send("Login to Writes your notes");
+            console.log("great")
         } else {
-            let username = req.params.username;
+            let id = req.session.userId;
+            console.log("The id " + id);
             db.Accounts.findAll({
-                where: username = username
-            }).then(function (data) {
-                res.json(data);
-            });
+                id : id 
+            },{include:[db.Notes]})
+            .then(function (data) {
+                //res.json(data);
+                console.log("This must be checked")
+                console.log(data)
+                res.json(data)
+            })
+            .catch(err=>{
+                throw err;
+            })
         };
     },
     createNote: (req, res) => {
@@ -119,9 +129,7 @@ if(note.title ==null || note.note == null){
     DestroySession: (req, res) => {
         req.session.destroy(function (err) {
             if (err) throw err;
-            res.json({
-                sucess: true
-            })
+            res.location('/Notetaker')
         })
     }
 }

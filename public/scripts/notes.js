@@ -1,5 +1,6 @@
 
 
+
 var API = {
     createNote: function () {
       return $.ajax({
@@ -13,25 +14,41 @@ var API = {
     },
     getNotes: function () {
         return $.ajax({
-            url : "/get-all-notes",
-            type : "GET",
+            url : "/your-notes",
+            type : "GET",  
+            dataType : "json"
         })
     },
    editNote : function (){
         return $.ajax({
             url : "/update/note/:id",
             type : "UPDATE",
-            success : function (){
-                
-            }
+           
         })
     },
+    loggout : function(){
+        return $.ajax({
+            url:"/destroy/session",
+            type : "DELETE",
+            success : function (){
+                window.location.replace('/noteTaker')            }
 
+
+        })
+
+    }
 }
 
 $(function(){
-    console.log("ho"
-    )
+ 
+    function all (){
+        API.getNotes().done( function (data){
+            console.log(data)
+        })
+
+     };
+
+    all();
     const overlayAll = () =>{
         console.log('hi');
         const overlay = $('.overlay-null');
@@ -56,8 +73,7 @@ $('.close-note').on('click', function (){
 })
 
 
-console.log(request)
-$(document).on("click", function (){
-    console.log(session)
-})
+
+$(".logOut-btn").on('click', API.loggout)
+
 })
