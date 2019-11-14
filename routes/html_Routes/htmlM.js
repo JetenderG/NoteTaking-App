@@ -39,11 +39,9 @@ app.get("/NoteTaker/your-notes", function (req,res){
          userId: userId        }
         
       })
-    }),
+    })
   //  })
 
-    app.get("*", function (req, res) {
-        res.render("404");
-      });
+    
 
 };

@@ -14,9 +14,8 @@ var API = {
     },
     getNotes: function () {
         return $.ajax({
-            url : "/your-notes",
+            url : "/gather-notes",
             type : "GET",  
-            dataType : "json"
         })
     },
    editNote : function (){
@@ -42,7 +41,7 @@ var API = {
 $(function(){
  
     function all (){
-        API.getNotes().done( function (data){
+        API.getNotes().then( function (data){
             console.log(data)
         })
 

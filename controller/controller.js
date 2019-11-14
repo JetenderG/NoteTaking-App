@@ -11,13 +11,11 @@ module.exports = {
         } else {
             let id = req.session.userId;
             console.log("The id " + id);
-            db.Accounts.findAll({
-                id : id 
-            },{include:[db.Notes]})
+            db.Notes.findAll()
             .then(function (data) {
                 //res.json(data);
                 console.log("This must be checked")
-                console.log(data)
+                console.log(data.getnoteID)
                 res.json(data)
             })
             .catch(err=>{

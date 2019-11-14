@@ -4,7 +4,7 @@ var Op = Sequelize.Op;
 var bcrypt = require("bcrypt");
 const controller = require("../../controller/controller")
 module.exports = app => {
-    app.get("/your-notes", controller.getAllNote);
+    app.get("/gather-notes", controller.getAllNote);
     app.post("/create-note", controller.createNote)
     app.put("/update/note/:id", controller.UpdateNote)
     ////Login and Registeration
