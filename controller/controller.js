@@ -2,17 +2,19 @@ var db = require("../models")
 var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 var bcrypt = require("bcrypt");
+const axiox = require("axios");
 module.exports = {
     getAllNote: (req, res) => {
         console.log("honninon")
-        if (req.params.username = null) {
+        console.log(req.session)
+
+        if (req.session.username = null) {
             res.send("Login to Writes your notes");
             console.log("great")
         } else {
             let id = req.session.userId;
             console.log("The id " + id);
             db.Notes.findAll({
-
                 where: {
                     noteID: id
                 },
@@ -21,8 +23,7 @@ module.exports = {
                 .then(function (data) {
                     //res.json(data);
                     console.log("This must be checked")
-
-                    res.json(data)
+                    res.json(data);
                 })
                 .catch(err => {
                     throw err;

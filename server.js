@@ -3,23 +3,24 @@ const exphbs = require("express-handlebars");
 const db = require("./models");
 const app = express();
 const PORT = /*process.env.PORT ||*/ 3000;
-const Handlebars =  require("handlebars");
+const Handlebars = require("handlebars");
 const session = require("express-session");
 const sequelizeStore = require("connect-session-sequelize")(session.Store);
+const controller = require("./controller/controller");
 
 app.use(session({
     secret: 'notssss',
     store: new sequelizeStore({
-      db: db.sequelize,
-      proxy: true
+        db: db.sequelize,
+        proxy: true
     }),
     resave: false,
     proxy: true,
-    saveUninitialized : true
-  }))
+    saveUninitialized: true
+}))
 
 app.use(express.urlencoded({
-extended:false
+    extended: false
 }));
 app.use(express());
 app.use(express.static("public"));
@@ -34,22 +35,23 @@ app.engine(
     })
 )
 
-Handlebars.registerHelper("spChar", function (url){
-    let newUrl = encodeURI(url);
-    console.log(newUrl)
-    return newUrl;
+Handlebars.registerHelper("getAll", function () {
+
+    return controller.getAllNote();
 
 })
-app.set("view engine","handlebars");
+
+
+app.set("view engine", "handlebars");
 
 
 var syncOptions = {
     force: false,
     // logging: console.log
-  };
+};
 
-db.sequelize.sync(syncOptions).then(function (){
-    app.listen(PORT , function (){
+db.sequelize.sync(syncOptions).then(function () {
+    app.listen(PORT, function () {
         console.log(
             "==> 🌎  Listening on port %s. Visit http://localhost:3000/NoteTaker in your browser.", PORT, PORT
 
