@@ -2,7 +2,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const db = require("./models");
 const app = express();
-const PORT = /*process.env.PORT ||*/ 3010;
+const PORT = /*process.env.PORT ||*/ 3000;
 const Handlebars =  require("handlebars");
 const session = require("express-session");
 const sequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -30,7 +30,7 @@ require("./routes/api_Routes/apiM")(app);
 app.engine(
     "handlebars",
     exphbs({
-        defaultLayout: "main"
+        defaultLayout: "main",
     })
 )
 
@@ -42,14 +42,16 @@ Handlebars.registerHelper("spChar", function (url){
 })
 app.set("view engine","handlebars");
 
+
 var syncOptions = {
-    force:false
-};
+    force: false,
+    // logging: console.log
+  };
 
 db.sequelize.sync(syncOptions).then(function (){
     app.listen(PORT , function (){
         console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/NoteTaker in your browser.", PORT, PORT
+            "==> 🌎  Listening on port %s. Visit http://localhost:3000/NoteTaker in your browser.", PORT, PORT
 
         )
     })

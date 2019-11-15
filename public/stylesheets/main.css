@@ -1,32 +1,27 @@
+
+
+
 /* Main Components for the Site */
-html {
-    font-size: 62.5%;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-html,
-body,
+
+
+html, body {
+    font-size: 62.5%;
+    height: 100vh;
+    width: 100vw;
+}
+
+
 .wrapper,
 .background-curve {
-    height: 100%;
-    width: 100%;
-    /* background-color: orange; */
-}
+ 
+    min-height: 85vh;
+    height: auto;
 
-body {
-    font-size: 1.5rem
-}
-
-h5 {
-    font-family: 'Anton', sans-serif;
-
-    text-align: center;
-}
-
-.wrapper {
-    height: 90%;
-    /* margin-bottom: 10%; */
-    border-radius: 6%;
-    background-color: white;
 }
 
 /*log-parital */
@@ -49,6 +44,16 @@ h1 {
     text-align: center;
     margin: 0 auto;
 }
+.main-title{
+    max-width: 100vh;
+    height: auto;
+    position: relative;
+    padding: auto;
+        font-family: 'Gochi Hand', cursive;
+        font-size: 9vmin;
+        width: 59%;
+        text-align: center;
+}
 
 .navbar-div {
     padding: auto;
@@ -57,58 +62,47 @@ h1 {
     margin-right: auto;
     margin-left: auto;
     position: relative;
-
+    top: 10px;
 }
 
 .nav-link {
     font-size: 1.7rem;
 
 }
+.tell-text{
+    font-size: 2.5vmin;
 
-.top-title {
-    position: relative;
+}
+.tell-container{
+    background: #f3f3f3;
+    margin-bottom: 10px;
 }
 
-.top-section {
-    margin: 0 !important;
-    height: 20%;
+.tell-log, .tell-ready{
+    font-size: 3vmin;
+
 }
 
-.middle-section {
-    width: 100%;
-    margin: auto;
-    height: 15%;
+
+.botCol{
+    text-align:center;
+}
+.profile-design{
+    height: 400px;
+    width: 400px;
+    border: black solid;
 }
 
 .bottom-section {
     width: 100%;
     margin: 0;
     overflow: hidden;
-    display: grid;
-   grid-template-rows: auto, auto, auto;
-   height: 20%;
-    grid-gap: 5%;
-    grid-template-columns: 30% 30% 30%;
+ 
 }
 
-.sect-box {
-    /* background-color: rgb(201, 192, 192); */
-    height: 100%;
-    position: relative;
-}
-
-.sect-box>h5 {
-    text-align: center;
-    width: 100%;
-}
-
-.sect-box>text {
-    text-align: center;
-    width: 100%;
-}
 
 .footer {
-    height: 5%;
+    height: 5vh;
     width: 100%;
     background-color: black;
     position: relative;
@@ -116,14 +110,21 @@ h1 {
 }
 
 .header-div {
-    height: 5%;
+    height: 10vh;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
-.main-title {
-    line-height: 7;
+
+
+section {
+text-align: center;
+width: 100%;
 }
 
+
+/*////////////////////////////////////////////////////////////////////////W               */
 .sign-login {
     border: solid black;
     height: 80%;
@@ -136,126 +137,106 @@ h1 {
     margin-bottom: 10%;
 }
 
-.loginBackground {
-    display: table;
+
+
+.loginW {
+    display: inline-flex;
+    flex-direction: column;
+    margin: auto 0 auto;
+    width: 100%;}
+
+.l-s {
+    height: 50%;
+    width: 100%;
+    display: inline-block;
 }
-   section {
-        text-align: center;
-        width: 100%;
+
+.form-group {
+    text-align: center;
+}
+
+.form-control {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.newloginBtn {
+    margin: 0 auto;
+    display: block;
+}
+
+.loginBtn {
+    margin: 0 auto;
+    display: block;
+}
+
+.icon {
+    height: 80%;
+    margin: auto;
+    padding: 1% 3% 3% 3%;
+    display: inline-block;
+}
+
+.save-btn-F {
+    height: 5rem;
+    width: 12rem;
+    border: solid;
+    border-color: #8080802e;
+    border-width: 0.5rem;
+    text-align: center;
+    padding: 5%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 5px #8080805e;
+
+}
+
+.save-text {
+    margin: 0;
+
+}
+
+.cursor-icon {
+    display: block;
+    margin: auto;
+    z-index: 2;
+    bottom: 15px;
+    left: 35px;
+    position: relative;
+
+}
+.folder-icon{
+    padding: 0 2px 3px;
+
+}
+.div-save{
+    padding: 10% 3% 3% 3%;
+
+}
+/*/////////////////////////////////////////////////////////          */
+
+@media screen and (max-width: 400px) {
+    .bottom-section {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: repeat(3, 33%);
+      justify-content: center;
+
     }
-
-  .sign-login {
-        border: solid black;
-        height: 80%;
-        display: inline-block;
-        vertical-align: middle;
-        width: 100%;
-        position: relative;
-        margin: auto;
-        margin-top: 10%;
-        margin-bottom: 10%;
+    .main-title{
+        font-size: 3rem;
+        top: 200px;
     }
-
-   .loginBackground {
-        display: table;
-
+    .wrapper{
+     padding: 0;
     }
-
-   .l-s {
-        height: 50%;
-        width: 100%;
-        display: inline-block;
+  }
+  @media screen and (max-width:1060px) {
+    .bottom-section {
+        overflow: hidden;
+        display: grid;
+        height: 32%;
+        
+        grid-template-columns: 20% 20% 20%;
+        margin-left: 50%;
     }
-
-    .form-group {
-        text-align: center;
-    }
-
-    .form-control {
-        width: 50%;
-        margin: 0 auto;
-    }
-
-    .newloginBtn {
-        margin: 0 auto;
-        display: block;
-    }
-
-    .loginBtn {
-        margin: 0 auto;
-        display: block;
-    }
-
-   .page-icon,
-    .save-icon,
-    .organize-icon {}
-
-     .icon {
-      height: 80%;
-            margin: auto;
-        }
-
-        .page-icon {
-            padding: 1% 3% 3% 3%;
-            display: inline-block;
-        }
-
-       .page-line {
-            height: 25%;
-            width: 80%;
-            border-bottom: solid;
-            margin: auto;
-        }
-
-
-        .save-border {
-            height: 90%;
-            width: 90%;
-            border: solid 2px black;
-            margin: 3% auto;
-
-        }
-
-        .little-note {
-            height: 10%;
-            width: 10%;
-            border: solid black 2px;
-
-        }
-          .save-btn-F {
-                height: 5rem;
-                width: 12rem;
-                border: solid;
-                border-color: #8080802e;
-                border-width: 0.5rem;
-                text-align: center;
-                padding: 5%;
-                position: relative;
-                z-index: 1;
-                box-shadow: 0px 5px #8080805e;
-
-            }
-
-            .save-text {
-                margin: 0;
-
-            }
-
-            .cursor-icon {
-                display: block;
-                margin: auto;
-                z-index: 2;
-                bottom: 15px;
-                left: 35px;
-                position: relative;
-
-            }
-
-            .folder-icon {
-                padding: 0 2px 3px;
-
-            }
-
-            .div-save {
-                padding: 10% 3% 3% 3%;
-            }
+  }

@@ -1,68 +1,62 @@
-
 <!--Header-->
-<div class="back-forth overlay not-active">
-<div class="header-div">
-  <div class="navbar-div">
-    <ul class="nav justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" href="/noteTaker">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/noteTaker/login">Login/Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
-      </li>
+<div class="overlay-null overlay-on ">
+  <div class="header-div">
+    <div class="navbar-div">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="/noteTaker">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/noteTaker/login">Login/Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
+        </li>
         <li class="nav-item">
           {{>logOrnot this}}
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-<!--Header end -->
-<!--Wrapper -->
-<div class=" wrapper noteBoard">
-<div class="noteBox">
-<div class="sidebar-notes category">
-</div>
-<div class="notes-container">
-<div class="dummy-notes item">
+  <!--Header end -->
+  <!--Wrapper -->
+  <div class=" wrapper noteBoard ">
+    <div class="noteBox">
+      <div class="sidebar-notes category">
+        <input type="button" class="input-note" name="Create A Note" id="inputNote">
+      </div>
+      <div class="note" data-id="">
 
-</div>
-<div class="dummy-notes item">
+      </div>
 
-</div>
-<div class="dummy-notes item">
+    </div>
+  </div>
 
-</div>
-<div class="dummy-notes item">
+  <div class="footer "></div>
 
-</div>
-<div class="dummy-notes item">
-
-</div>
-
-</div>
-</div>
 </div>
 <!--Wrapper end -->
 <!--Footer -->
-<div class="footer"></div>
 <!--Footer end -->
 </div>
 
 <div class="overlay not-active">
 
 </div>
-<div class="new-note-form  note-Notactive">
-  <form method="POST" action="/account_owner/newNote" >
-  <label class="label">Note Title</label>
-  <div class="title">
-    <input type="text" class="n-note-title" name="title"></input>
-  </div>
-      <label class="note-text">Write Your Note</label>
-  <div class="text-note">
-    <textarea class="note-text" name="note">
-  </div>
+<div class="new-note-form">
+  <form method="POST" action="/create-note">
+    <label class="label">Note Title</label>
+    <input type="hidden" class="id-note-title" value={{data.userId}} name="id"></input>
+
+    <div class="title">
+      <input type="text" class="n-note-title" name="title"></input>
+    </div>
+    <label class="note-text">Write Your Note</label>
+    <div class="text-note">
+      <textarea class="note-text" name="note"></textarea>
+    </div>
+    <div class="submit-div">
+      <input type="submit" name="submit">
+    </div>
   </form>
 </div>

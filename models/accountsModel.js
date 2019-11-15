@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes){
 
 
-    const Accounts =sequelize.define("accounts", {
+   var Accounts =sequelize.define("Accounts", {
 
         id : {
             type: DataTypes.INTEGER,
@@ -24,7 +24,17 @@ module.exports = function (sequelize, DataTypes){
      
 
     })
+
+    Accounts.associate = function (models) {
+
+        Accounts.hasMany(models.Notes,{
+            foreignKey:'noteID',
+            constraints: false,
+
+        });
     
+    };
+
 return Accounts;
 
 };

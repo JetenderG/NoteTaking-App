@@ -12,3 +12,7 @@ var API = {
 }
 
 
+$('.logOut-btn').on('click',()=>{
+console.log("hi")
+
+})

@@ -1,32 +1,86 @@
-import { json } from "sequelize/types";
-import { type } from "os";
+
+
 
 var API = {
     createNote: function () {
-      return $.ajax({
-        url: "/noteTaker/create/note",
-        type: "POST",
-        success: function(){
-          location.reload()
-          alert('Note Been Saved');
-         }
-      })
-    },
-    getNotes: function () {
         return $.ajax({
-            url : "noteTaker/get-all-notes",
-            type : "GET",
-        })
-    },
-   editNote : function (){
-        return $.ajax({
-            url : "noteTaker/update/note/reference:",
-            type : "UPDATE",
-            success : function (){
-                
+            url: "/create-note",
+            type: "POST",
+            success: function () {
+                location.reload()
+                alert('Note Been Saved');
+            },
+            error: function () {
+                console.log('Submission Error ')
             }
         })
     },
+    getNotes: function () {
+        return $.ajax({
+            url: "/gather-notes",
+            type: "GET",
+        })
+    },
+    editNote: function () {
+        return $.ajax({
+            url: "/update/note/:id",
+            type: "UPDATE",
 
+        })
+    },
+    loggout: function () {
+        return $.ajax({
+            url: "/destroy/session",
+            type: "DELETE",
+            success: function () {
+                window.location.replace('/noteTaker')
+            }
+
+
+        })
+
+    }
 }
 
+$(function () {
+
+    $('')
+
+
+    if (window.location.href == "http://localhost:3000/noteTaker/your-notes") {
+        API.getNotes().then(function (data) {
+            console.log("This is the data   " + JSON.stringify(data))
+        })
+
+
+    }
+
+
+    const overlayAll = () => {
+        console.log('hi');
+        const overlay = $('.overlay-null');
+        const overlay_h = $('.header-div');
+        const overlay_n = $('.noteBoard');
+        const overlay_f = $('.footer');
+        overlay.addClass('overlay-on');
+        overlay_h.addClass('overlay-header');
+        overlay_n.addClass('overlay-noteBoard');
+        overlay_f.addClass('overlay-footer');
+    };
+
+    $(".input-note").on('click', overlayAll)
+
+
+    $('.close-note').on('click', function () {
+        const overlaynull = $('.overlay-null');
+        overlaynull.removeClass('overlay-on');
+        overlay_h.removeClass('overlay-header');
+        overlay_n.removeClass('overlay-noteBoard');
+        overlay_f.removeClass('overlay-footer');
+    })
+
+
+
+    $(".logOut-btn").on('click', API.loggout)
+
+})

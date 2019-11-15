@@ -1,18 +1,30 @@
-.note-Notactive{
+
+.overlay-null{
+    height: 100%;
+    width: 100%;
+}
+.overlay-on{
+    z-index: 0;
+    display: block;
+  
+}
+.new-note-form{
     display: none;
 }
-.note.active{
+.note-active{
     display: block;
     width: 50%;
     height: 70%;
     margin: auto;
+    z-index: 1;
 }
 .overlay{
     display: none;
 }
-.noteBoard{
+.noteBoard {
     margin: 0;
     z-index: 0;
+    padding: 0;
 }
 .noteBox{
     height: 100%;
@@ -38,4 +50,9 @@
     /* margin-right: 0 !important; */
     display: block;
     float: left;
+}
+
+.overlay-header, .overlay-noteBoard,.overlay-footer{
+    z-index: -100;
+    position: relative;
 }
