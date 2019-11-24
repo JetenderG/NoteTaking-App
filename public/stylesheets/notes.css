@@ -9,7 +9,7 @@
   
 }
 .new-note-form{
-    display: none;
+    display: block;
 }
 .note-active{
     display: block;
@@ -27,15 +27,13 @@
     padding: 0;
 }
 .noteBox{
-    height: 100%;
-    width: 100%;
+    height: 85vh;  
+      width: 100%;
    border: solid black;
 }
 .notes-container{
     display: grid;
     grid-gap: 2px;
-    grid-template-columns: repeat(auto-fit , 24%);
-    grid-template-rows: repeat(auto-fit , 24%);
     width: 90%;
     height: 100%;
 }
@@ -55,4 +53,37 @@
 .overlay-header, .overlay-noteBoard,.overlay-footer{
     z-index: -100;
     position: relative;
+}
+
+
+.note{
+    display: block;
+    border: solid black;
+    height: 100%;
+    width: 9rem;
+    overflow: hidden;
+}
+.note::after{
+    content: '';
+    clear: both;
+    display: table;
+}
+
+@media  screen and (min-width: 1060px){
+    .notes-container{
+
+        grid-template-columns: repeat(10 , 1fr);
+        grid-template-rows: repeat(9 , 1fr);
+
+    }
+
+}
+@media  screen and (max-width: 500px){
+    .notes-container{
+
+        grid-template-columns: repeat(10 , 1fr);
+        grid-template-rows: repeat(11 , 1fr);
+
+    }
+
 }

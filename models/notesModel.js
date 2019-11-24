@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 
         },
         note: {
-            type: DataTypes.BLOB,
+            type: DataTypes.TEXT,
 
         },
         date: {

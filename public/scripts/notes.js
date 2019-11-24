@@ -1,6 +1,7 @@
 
 
 
+
 var API = {
     createNote: function () {
         return $.ajax({
@@ -41,20 +42,20 @@ var API = {
 
     }
 }
+    // accessApi = () =>{   
+    //     console.log(window.location.href)
+    //     if (window.location.href == "http://localhost:3000/noteTaker/your-notes") {
+    //         API.getNotes()
+    // }}
+
+    
+    // accessApi();
 
 $(function () {
+    console.log(window.location.href)
 
-    $('')
-
-
-    if (window.location.href == "http://localhost:3000/noteTaker/your-notes") {
-        API.getNotes().then(function (data) {
-            console.log("This is the data   " + JSON.stringify(data))
-        })
-
-
-    }
-
+$(".submitNote").on("click", ()=>{
+})
 
     const overlayAll = () => {
         console.log('hi');

@@ -32,9 +32,14 @@ module.exports = function (sequelize, DataTypes){
             constraints: false,
 
         });
+        Accounts.hasOne(models.Sessions,{
+            foreignKey:'userSession',
+            constraints: false,
+
+        });
     
     };
-
+    
 return Accounts;
 
 };
