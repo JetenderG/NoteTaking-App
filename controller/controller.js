@@ -3,27 +3,49 @@ var Sequelize = require("sequelize");
 var Op = Sequelize.Op;
 var bcrypt = require("bcrypt");
 const axiox = require("axios");
+const handlebars = require('handlebars');
 module.exports = {
-    getAllNote: (req, res) => {
+    getAllNote: (req, res, next) => {
         console.log("honninon")
-        console.log(req.session)
-
-        if (req.session.username = null) {
-            res.send("Login to Writes your notes");
+     //   let username = req.session.username;
+       // let userId = req.session.userId;
+        let user= 1;
+     //   console.log("This is the session of the req start  :" + req.session.username)
+        if (req.session.username == null || req.session.username == undefined) {
+            res.redirect('/NoteTaker');
             console.log("great")
         } else {
-            let id = req.session.userId;
-            console.log("The id " + id);
+            let id = 1 /*req.session.userId*/;
+            //console.log("The id " + id);
+                //this function keeps altering session.username
             db.Notes.findAll({
                 where: {
                     noteID: id
                 },
                 include: [{ model: db.Accounts, as: "notesUses" }]
             })
-                .then(function (data) {
-                    //res.json(data);
-                    console.log("This must be checked")
-                    res.json(data);
+                .then( data => {
+                    console.log("Thos so the data pf the accpimt mptes : " + data)
+                   // console.log("This must be checked")
+                 //   console.log(data)
+                    if (data == null || data == undefined){
+                       console.log("Note Available")
+                    //    res.session.data = data;
+                    }else{
+                    // console.log(req.session)
+                    async  function addData (){
+                    req.session.allofNotes = [];
+                    req.session.allofNotes = data;
+                    req.session.checifExistenceAlter = true;
+                    console.log(req.session.allofNotes[0]);
+                    }              
+                    addData().then(data=>{
+                    console.log("Content Passed On")
+                    next();
+                    })
+                    
+                       // reRenderPerN({});
+                    }
                 })
                 .catch(err => {
                     throw err;
@@ -32,10 +54,13 @@ module.exports = {
     },
     createNote: (req, res) => {
         console.log("Title: " + req.body.title + "  Text:  " + req.body.note)
-        console.log(req.body)
+     //   console.log(req.body)
+        //console.log("This is the seession where we create notes:  " +
+       // req.session.username)
         db.Accounts.findAll({
             where: { username: req.session.username }
         }).then(data => {
+            //console.log(data)
             let userId = data[0].dataValues.id
             let note = {
                 title: req.body.title,
@@ -47,7 +72,8 @@ module.exports = {
             } else {
                 db.Notes.create(note)
                     .then(function (data) {
-                        console.log("Note Created")
+                        console.log(`Created Note${data}`)
+                        res.redirect('NoteTaker/your-notes')
                     })
             }
 
@@ -112,10 +138,11 @@ module.exports = {
                 } else {
                     // console.log(results);
                     bcrypt.compare(password, results.dataValues.password, function (err, check) {
-                        console.log("This is an object of account:  " + results.id)
+                      //  console.log("This is an object of account:  " + results.id)
                         // console.log(JSON.stringify(results))
                         //console.log(results.dataValues)
                         if (err) throw err;
+                        console.log(username)
                         if (check == true) {
                             request.session.loggedin = true;
                             request.session.username = username;
@@ -136,5 +163,32 @@ module.exports = {
             if (err) throw err;
             res.location('/Notetaker')
         })
+    },
+    validateData : (req, res, next)=>{
+        console.log("The Validate segnment")
+        const username = req.session.username;
+
+        if (req.session.username == null){
+            return  res.redirect("/NoteTaker")
+        }
+
+        //  console.log(`${username} ${password}`)
+       
+            db.Accounts.findOne({
+                where: {
+                    username: username
+                }
+            }).then(function (results) {
+               // console.log(results)
+                if (!results) {
+                    console.log("redirect")
+                    res.redirect("/NoteTaker ")
+                } else {
+                    // console.log(results);
+                            next();
+                }
+            })
+        
+
     }
 }

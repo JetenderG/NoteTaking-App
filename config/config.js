@@ -8,7 +8,7 @@ module.exports =
       "database": "noteTaker_db",
       "host": "localhost",
       "dialect": "mysql",
-      "port": "8889",
+      "port": "3306",
       "logging": false,
       "storage": "./session.mysql"
     },
@@ -18,7 +18,7 @@ module.exports =
       "database": "noteTaker_db",
       "host": "localhost",
       "dialect": "mysql",
-      "port": "8889",
+      "port": "3306",
       "logging": false,
       "storage": "./session.mysql"
 
@@ -29,7 +29,7 @@ module.exports =
       "database": "noteTaker_db",
       "host": "localhost",
       "dialect": "mysql",
-      "port": "8889",
+      "port": "3306",
       "logging": false,
       "storage": "./session.mysql"
     }

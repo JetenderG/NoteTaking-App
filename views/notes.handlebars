@@ -23,8 +23,13 @@
   <div class=" wrapper noteBoard ">
     <div class="noteBox">
       <div class="sidebar-notes category">
-        <input type="button" class="input-note" name="Create A Note" id="inputNote">
       </div>
+<div class="notes-container">
+    {{#each this.notes}}
+  {{> perNote}}>
+  {{/each}}
+</div>
+
 
 
     </div>
@@ -54,7 +59,7 @@
       <textarea class="note-text" name="note"></textarea>
     </div>
     <div class="submit-div">
-      <input type="submit" name="submit">
+      <input type="submit"  class="submitNote"  name="submit">
     </div>
   </form>
 </div>

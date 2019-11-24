@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Sessions = sequelize.define("sessions", {
+    var Sessions = sequelize.define("Sessions", {
             sid: {
                 type: DataTypes.STRING,
                 primaryKey: true
