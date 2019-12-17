@@ -32,12 +32,10 @@ var API = {
     loggout: function () {
         return $.ajax({
             url: "/destroy/session",
-            type: "DELETE",
-            success: function () {
-                window.location.replace('/noteTaker')
+            type: "POST",
+            success : ()=>{
+                console.log('Destroyed')
             }
-
-
         })
 
     }
@@ -57,31 +55,56 @@ $(function () {
 $(".submitNote").on("click", ()=>{
 })
 
-    const overlayAll = () => {
+$(".note").on('click', (event) =>{
+
+    console.log(event.target)
+
+
+
+
+})
+    let overlayAll = () => {
         console.log('hi');
         const overlay = $('.overlay-null');
         const overlay_h = $('.header-div');
         const overlay_n = $('.noteBoard');
-        const overlay_f = $('.footer');
+       // const overlay_f = $('.footer');
         overlay.addClass('overlay-on');
         overlay_h.addClass('overlay-header');
         overlay_n.addClass('overlay-noteBoard');
-        overlay_f.addClass('overlay-footer');
-    };
+       // overlay_f.addClass('overlay-footer');
+        console.log("OverLay ON")
+        let overlayClass =$("#noteFrom")
+
+        overlayClass.addClass('new-note-form');
+        overlayClass.removeClass('new-note-formn-none');
+    }
+
+    let overlayOff = () =>{
+        const overlay = $('.overlay-null');
+        const overlay_h = $('.header-div');
+        const overlay_n = $('.noteBoard');
+        //const overlay_f = $('.footer');
+        overlay.removeClass('overlay-on');
+        overlay_h.removeClass('overlay-header');
+        overlay_n.removeClass('overlay-noteBoard');
+      //  overlay_f.removeClass('overlay-footer');
+        let overlayClass =$("#noteFrom")
+
+        overlayClass.addClass('new-note-form-none')
+        overlayClass.removeClass('new-note-form');
+
+    }
+
 
     $(".input-note").on('click', overlayAll)
 
 
-    $('.close-note').on('click', function () {
-        const overlaynull = $('.overlay-null');
-        overlaynull.removeClass('overlay-on');
-        overlay_h.removeClass('overlay-header');
-        overlay_n.removeClass('overlay-noteBoard');
-        overlay_f.removeClass('overlay-footer');
-    })
+    $('.close-note').on('click',overlayOff)
 
 
 
-    $(".logOut-btn").on('click', API.loggout)
+    $(".logOut-btn").on('click', API.loggout);
 
-})
+});
+

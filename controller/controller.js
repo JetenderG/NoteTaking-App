@@ -52,6 +52,26 @@ module.exports = {
                 })
         };
     },
+    getSpecficOne : (req,res)=>{
+
+        db.Notes.findAll({
+            where:{title:title}
+        }).then(response =>{
+
+            if(response == null || response == undefined ||response == ''){
+                return res.send()
+            };
+
+
+
+        });
+
+
+
+
+
+
+    },
     createNote: (req, res) => {
         console.log("Title: " + req.body.title + "  Text:  " + req.body.note)
      //   console.log(req.body)
@@ -74,10 +94,10 @@ module.exports = {
                     .then(function (data) {
                         console.log(`Created Note${data}`)
                         res.redirect('NoteTaker/your-notes')
-                    })
-            }
+                    });
+            };
 
-        })
+        });
     },
     UpdateNote: (req, res) => {
         console.log("Title: " + req.body.title + "  Text:  " + req.body.text)
@@ -89,7 +109,7 @@ module.exports = {
             where: username = req.session.username
         }).then(function (data) {
             console.log("Note Created")
-        })
+        });
     },
     CreateAccount: (req, res) => {
         let saltRounds = 10;
@@ -113,11 +133,11 @@ module.exports = {
                         }
                         db.Accounts.create(newaccount).then(function (data) {
                             res.redirect("/NoteTaker/login")
-                        })
-                    })
-                })
-            }
-        })
+                        });
+                    });
+                });
+            };
+        });
     },
     ////Login and Registeration
     Authorize: (request, respond) => {
@@ -152,17 +172,18 @@ module.exports = {
                             console.log(request.session)
                         } else {
                             respond.json("Incorrect Passwprd ")
-                        }
-                    })
-                }
-            })
-        }
+                        };
+                    });
+                };
+            });
+        };
     },
     DestroySession: (req, res) => {
         req.session.destroy(function (err) {
             if (err) throw err;
-            res.location('/Notetaker')
-        })
+            console.log("This sesssion has been destroyed");
+            res.json({success : "Updated Successfully", status : 200});
+        });
     },
     validateData : (req, res, next)=>{
         console.log("The Validate segnment")
@@ -186,9 +207,9 @@ module.exports = {
                 } else {
                     // console.log(results);
                             next();
-                }
-            })
+                };
+            });
         
 
     }
-}
+};
