@@ -1,78 +1,87 @@
 <!--Header-->
 <div class="Notes-Page">
-<div class="overlay-null overlay-on ">
-  <div class="header-div">
-    <div class="navbar-div">
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" href="/noteTaker">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/noteTaker/login">Login/Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
-        </li>
-        <li class="nav-item">
-          {{>logOrnot this}}
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--Header end -->
-  <!--Wrapper -->
-  <div class=" wrapper noteBoard ">
-      <div class="sidebar-notes category">
-        <div class="filter">
-            <div class="find-by-title">
-
-            </div>
-        </div>
+  <div class="overlay-null  ">
+    <div class="header-div">
+      <div class="navbar-div">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="/noteTaker">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/noteTaker/login">Login/Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/noteTaker/your-notes">Your Notes</a>
+          </li>
+          <li class="nav-item">
+            {{>logOrnot this}}
+          </li>
+        </ul>
       </div>
-<div class="holding-grid">        
-  <button class="input-note"></button>
+    </div>
+    <!--Header end -->
+    <!--Wrapper -->
+    <div class=" wrapper noteBoard ">
+      <div class="sidebar">
+        <ul>
+          <li>
+            <div class="toggleSideBar">
+              
+            </div>
+          </li>
+          <li>
+            <div class="filter">
+              <div class="find-by-title">
 
-  <div class="notes-container">
-    {{#each this.notes}}
-  {{> perNote}}
-  {{/each}}
-</div>
+              </div>
+            </div>
+          </li>
+          <li></li>
 
 
-</div>
 
+
+        </ul>
+
+      </div>
+      <div class="holding-grid">
+        <button class="input-note"></button>
+
+        <div class="notes-container">
+          {{#each this.notes}}
+          {{>perNote this.notes}}
+          {{/each}}
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div class="footer "></div>
 
   </div>
+  <div class="new-note-form-none" id="noteFrom">
+    <form method="POST" action="/create-note">
+      <label class="label">Note Title</label>
+      <input type="hidden" class="id-note-title" value={{data.userId}} name="id"></input>
 
-  <div class="footer "></div>
-
-</div>
-<div class="new-note-form-none" id="noteFrom">
-  <form method="POST" action="/create-note">
-    <label class="label">Note Title</label>
-    <input type="hidden" class="id-note-title" value={{data.userId}} name="id"></input>
-
-    <div class="title">
-      <input type="text" class="n-note-title" name="title"></input>
-    </div>
-    <label class="note-text">Write Your Note</label>
-    <div class="text-note">
-      <textarea class="note-text" name="note"></textarea>
-    </div>
-    <div class="submit-div">
-      <input type="submit"  class="submitNote"  name="submit">
-    </div>
-    <div class="close-note">Close</div>
-  </form>
-</div>
+      <div class="title">
+        <input type="text" class="n-note-title" name="title"></input>
+      </div>
+      <label class="note-text">Write Your Note</label>
+      <div class="text-note">
+        <textarea class="note-text" name="note"></textarea>
+      </div>
+      <div class="submit-div">
+        <input type="submit" class="submitNote" name="submit">
+      </div>
+      <div class="close-note">Close</div>
+    </form>
+  </div>
 </div>
 
-</div>
 <!--Wrapper end -->
 <!--Footer -->
 <!--Footer end -->
-
-
-
-
-

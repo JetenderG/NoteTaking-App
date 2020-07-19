@@ -15,12 +15,12 @@ module.exports = {
             res.redirect('/NoteTaker');
             console.log("great")
         } else {
-            let id = 1 /*req.session.userId*/;
+            let id = req.session.userId;
             //console.log("The id " + id);
                 //this function keeps altering session.username
             db.Notes.findAll({
                 where: {
-                    noteID: id
+                    NotesAcc: id
                 },
                 include: [{ model: db.Accounts, as: "notesUses" }]
             })
@@ -85,7 +85,7 @@ module.exports = {
             let note = {
                 title: req.body.title,
                 note: req.body.note,
-                noteID: userId
+                NotesAcc: userId
             }
             if (note.title == null || note.note == null) {
                 return res.send('Please add a title and or text')
@@ -119,9 +119,11 @@ module.exports = {
                 password: req.body.email
             }
         }).then(function (data) {
+            console.log("Hitting the creaion point")
             if (data.length > 1) {
                 res.send("The Account is already taken")
             } else if (data.length < 1) {
+                console.log("Creating account point")
                 bcrypt.genSalt(saltRounds, function (err, salt) {
                     if (err) throw err
                     bcrypt.hash(req.body.password, salt, function (err, hash) {
@@ -182,7 +184,7 @@ module.exports = {
         req.session.destroy(function (err) {
             if (err) throw err;
             console.log("This sesssion has been destroyed");
-            res.json({success : "Updated Successfully", status : 200});
+            res.redirect("/NoteTaker");
         });
     },
     validateData : (req, res, next)=>{

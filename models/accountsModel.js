@@ -28,7 +28,7 @@ module.exports = function (sequelize, DataTypes){
     Accounts.associate = function (models) {
 
         Accounts.hasMany(models.Notes,{
-            foreignKey:'noteID',
+            foreignKey:'NotesAcc',
             constraints: false,
 
         });

@@ -96,6 +96,13 @@ $(".note").on('click', (event) =>{
 
     }
 
+    navbarToggle = () =>{
+
+        $('sidebar').toggleClass('sidebar-notes-Active')
+    }
+
+
+
 
     $(".input-note").on('click', overlayAll)
 
@@ -105,6 +112,8 @@ $(".note").on('click', (event) =>{
 
 
     $(".logOut-btn").on('click', API.loggout);
+
+    $('.toggleSidebar').on('click', navbarToggle);
 
 });
 

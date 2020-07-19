@@ -35,13 +35,14 @@ module.exports = app => {
     //   res.send("Please Login in Order to Create Notes")
     // } else  {
     // console.log(username)
-    console.log("This is session from the htmlRoute : " + req.session)
+    console.log("This is session from the htmlRoute : " + JSON.stringify(req.session))
     console.log(req.session.data)
   let data = {
         username: username,
         userId: userId,
         notes:  req.session.allofNotes
       }
+      console.log("This is the data from the notes variable "+ JSON.stringify(data.notes))
       const template = Handlebars.compile("{{perNote}}");
       template({});    
       res.render("notes",data)
